@@ -1,5 +1,8 @@
 # 🍊 Orange Loop v1.1
 
+> [!IMPORTANT]
+> This repository has been superseded by **[orange-loop-max](https://github.com/bekingdomcomejoker-cpu/orange-loop-max)**, which implements the "Final Seal" architecture including the 7-Node Bimanual / Zero-One Alternation and MikroTik integration.
+
 Orange Loop is a specialized AI architecture designed for Termux on Android. It implements a 7-node alternating intelligence loop optimized for mobile devices.
 
 ## 🏗️ Architecture
