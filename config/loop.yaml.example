@@ -1,0 +1,73 @@
+# Orange Loop Configuration Example
+# Copy to loop.yaml and customize
+system:
+ max_memory_mb: 800
+ safe_threshold_mb: 500
+ enable_mlock: true
+ enable_mmap: false
+nodes:
+ # Node 1: Wire - Framing & routing
+ wire:
+  model: qwen2.5-0.5b-instruct-q4_k_m.gguf
+  ctx: 256
+  threads: 2
+  temp: 0.3
+ # Node 2: Reflex - Fast pattern match
+ reflex:
+  model: smollm-1.7b-instruct-q4_k_m.gguf
+  ctx: 512
+  threads: 2
+  temp: 0.5
+ # Node 3: Reason - Slow thinking
+ reason:
+  model: deepseek-r1-distill-qwen-1.5b-q4_k_m.gguf
+  ctx: 2048
+  threads: 3
+  temp: 0.7
+ # Node 4: Form - Structure
+ form:
+  model: deepseek-coder-1.3b-instruct-q4_k_m.gguf
+  ctx: 2048
+  threads: 3
+  temp: 0.2
+ # Node 5: Voice - Expression
+ voice:
+  model: qwen2.5-1.5b-instruct-q4_k_m.gguf
+  ctx: 1024
+  threads: 2
+  temp: 0.7
+ # Node 6: Heart - Alignment
+ heart:
+  model: gemma-2-2b-it-q4_k_m.gguf
+  ctx: 1024
+  threads: 3
+  temp: 0.8
+ # Node 7: Whisper - Memory
+ whisper:
+  model: qwen2.5-0.5b-instruct-q4_k_m.gguf
+  ctx: 4096
+  threads: 2
+  temp: 0.2
+ # Optional hands
+ smith:
+  model: deepseek-coder-1.3b-instruct-q4_k_m.gguf
+  ctx: 1024
+  threads: 2
+  temp: 0.1
+ scout:
+  model: deepseek-r1-distill-qwen-1.5b-q4_k_m.gguf
+  ctx: 1024
+  threads: 2
+  temp: 0.4
+ gate:
+  model: qwen2.5-0.5b-instruct-q4_k_m.gguf
+  ctx: 512
+  threads: 2
+  temp: 0.1
+paths:
+ llama_bin: ~/orange-loop/llama.cpp/build/bin
+ models_dir: ~/orange-loop/models
+# Optimization tips:
+# - Low memory? Reduce ctx sizes
+# - Slow? Increase threads (if you have cores)
+# - Battery? Lower threads and increase temp slightly
